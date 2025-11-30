@@ -208,7 +208,7 @@ with tab_form:
             else:
                 proba = float(model.predict(df_input))
 
-            pred = model.predict(df_input)[0]
+            pred = model.predict(df_input)
 
             # Card di bagian atas
             churn_prob_placeholder.metric(
@@ -376,4 +376,5 @@ with tab_doc:
         - Gunakan hasil model sebagai **indikasi risiko**, bukan satu-satunya dasar keputusan.
         """
     )
+
 
