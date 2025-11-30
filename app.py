@@ -10,7 +10,7 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    with open("model_terbaik.pkl", "rb") as f:
+    with open("best_model.sav", "rb") as f:
         return pickle.load(f)
 
 model = load_model()
@@ -376,6 +376,7 @@ with tab_doc:
         - Gunakan hasil model sebagai **indikasi risiko**, bukan satu-satunya dasar keputusan.
         """
     )
+
 
 
 
