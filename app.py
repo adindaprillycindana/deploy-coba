@@ -132,7 +132,7 @@ with tab_form:
         col_cat1, col_cat2 = st.columns(2)
 
         with col_cat1:
-            seller_city_mode = st.select_box("seller_city_mode",
+            seller_city_mode = st.selectbox("seller_city_mode",
                                              ['timbo', 'porto alegre', 'ibitinga', 'sao paulo', 'imigrante',
        'formiga', 'atibaia', 'rio de janeiro', 'blumenau', 'paulinia',
        'belo horizonte', 'serra negra', 'cachoeirinha',
@@ -257,7 +257,7 @@ with tab_form:
        'coronel fabriciano', 'santa rosa de viterbo', 'mococa',
        'floresta', 'pirituba', 'mairipora', 'laguna', 'paracambi',
        'arinos', 'paraiba do sul', 'dois corregos', 'campanha'])
-            customer_city_mode = st.select_box("customer_city_mode", 
+            customer_city_mode = st.selectbox("customer_city_mode", 
                                                ['sao paulo', 'eldorado', 'fortaleza', 'rio de janeiro', 'marau',
        'ituiutaba', 'niteroi', 'ribeirao preto', 'brasilia', 'recife',
        'sao jose dos campos', 'olimpia', 'itapeva',
@@ -381,18 +381,18 @@ with tab_form:
        'caetanopolis', 'foz do iguacu', 'sao mamede', 'bom jesus da lapa',
        'holambra', 'braganca paulista', 'dracena', 'pocos de caldas',
        'betim'])
-            customer_state_mode = st.select_box("customer_state_mode", 
+            customer_state_mode = st.selectbox("customer_state_mode", 
                                                 ['SP', 'CE', 'RS', 'RJ', 'MG', 'PR', 'GO', 'BA', 'DF', 'MS', 'SC',
        'PB', 'MT', 'TO', 'ES', 'PA', 'AL', 'PE', 'MA', 'RO', 'AC', 'PI',
        'SE', 'AM', 'AP', 'RN'])
 
         with col_cat2:
-            seller_state_mode = st.select_box("seller_state_mode", 
+            seller_state_mode = st.selectbox("seller_state_mode", 
                                               ['SC', 'RS', 'SP', 'MG', 'RJ', 'PR', 'GO', 'PE', 'ES', 'DF', 'BA',
        'MT', 'AM', 'CE', 'MS', 'RN', 'RO', 'PB', 'PI', 'SE', 'MA'])
-            payment_type_mode = st.select_box("payment_type_mode", 
+            payment_type_mode = st.selectbox("payment_type_mode", 
                                               ['credit_card', 'boleto', 'voucher', 'debit_card'])
-            order_status_mode = st.select_box("order_status_mode", 
+            order_status_mode = st.selectbox("order_status_mode", 
                                               ['delivered', 'canceled', 'shipped'])
             product_category_name_english_mode = st.select_box(
                 "product_category_name_english_mode",
@@ -653,3 +653,4 @@ with tab_doc:
         - Gunakan hasil model sebagai **indikasi risiko**, bukan satu-satunya dasar keputusan.
         """
     )
+
