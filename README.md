@@ -2,155 +2,142 @@
 
 ## **1. Deskripsi Proyek**
 
-Proyek ini bertujuan untuk menganalisis faktor-faktor yang mempengaruhi **churn seller** pada platform marketplace Olist. Seller churn merujuk pada kondisi ketika seller berhenti berjualan atau menjadi tidak aktif dalam periode tertentu. Analisis dilakukan menggunakan data historis transaksi, performa seller, serta metrik aktivitas lainnya.
+Proyek ini bertujuan untuk menganalisis perilaku **churn seller** pada marketplace (penjual yang berhenti aktif). Analisis dilakukan menggunakan dataset historis yang mencakup transaksi, performa seller, dan variabel operasional lainnya. Output akhir berupa model prediksi churn serta aplikasi sederhana untuk melakukan prediksi berdasarkan input user.
 
-Proyek mencakup eksplorasi data, pembuatan fitur, pemodelan machine learning, serta rekomendasi strategis berdasarkan temuan model.
-
----
-
-## **2. Latar Belakang**
-
-Marketplace seperti Olist sangat mengandalkan keberlanjutan seller untuk menjaga ekosistem yang sehat. Ketika seller churn, terjadi dampak negatif seperti:
-
-* Penurunan pilihan produk untuk pelanggan
-* Berkurangnya volume transaksi
-* Meningkatnya biaya akuisisi seller baru
-
-Dengan memahami faktor penyebab churn, tim dapat melakukan intervensi preventif sebelum seller benar-benar meninggalkan platform.
+Proyek ini terdiri dari notebook analisis, file model, aplikasi, dan query SQL yang digunakan pada tahap data preparation.
 
 ---
 
-## **3. Stakeholder**
+## **2. File & Struktur Repository**
 
-Pihak yang berkepentingan dalam proyek ini:
-
-* **Seller Support Team**
-  Membantu menjaga hubungan seller dan mendukung kebutuhan mereka.
-
-* **Business Intelligence Team**
-  Menganalisis performa bisnis dan memberikan insight strategis.
-
-* **Marketplace Product Team**
-  Mengembangkan fitur dan pengalaman seller di platform.
-
----
-
-## **4. Tujuan Proyek**
-
-Proyek ini memiliki beberapa tujuan utama:
-
-* Mengidentifikasi faktor signifikan yang berpengaruh pada risiko churn seller.
-* Membangun model prediksi churn dengan performa yang optimal.
-* Memberikan rekomendasi actionable berdasarkan hasil analisis dan model.
-* Menyediakan insight yang dapat digunakan untuk strategi retensi seller.
-
----
-
-## **5. Dataset**
-
-Dataset yang digunakan mencakup:
-
-* Informasi seller
-* Riwayat transaksi
-* Kategori produk
-* Performansi pengiriman
-* Rating dan ulasan pelanggan
-
-Notebook melakukan pembersihan data, penggabungan tabel, serta feature engineering untuk menyiapkan data sebelum modeling.
-
----
-
-## **6. Metodologi**
-
-Tahapan utama dalam analisis:
-
-1. **Exploratory Data Analysis (EDA)**
-   Mengidentifikasi pola, distribusi data, dan outlier.
-
-2. **Data Preprocessing**
-
-   * Handling missing values
-   * Encoding
-   * Scaling
-   * Feature selection
-
-3. **Modeling**
-   Model machine learning yang digunakan antara lain:
-
-   * Logistic Regression
-   * Random Forest
-   * XGBoost
-
-4. **Evaluasi Model**
-   Menggunakan metrik:
-
-   * Accuracy
-   * Precision, Recall, F1-score
-   * ROC-AUC
-
-5. **Interpretasi Fitur**
-   Melihat fitur mana yang paling berkontribusi dalam meningkatkan risiko churn.
-
----
-
-## **7. Hasil Utama**
-
-* Model terbaik menunjukkan performa prediksi yang baik untuk mendeteksi seller dengan risiko churn tinggi.
-* Beberapa faktor penting yang ditemukan berpengaruh:
-
-  * Penurunan jumlah pesanan dalam beberapa periode terakhir
-  * Rating buruk atau meningkatnya komplain
-  * Penurunan variasi produk yang dijual
-  * Kenaikan waktu pengiriman
-
----
-
-## **8. Rekomendasi Bisnis**
-
-Berdasarkan insight model, beberapa rekomendasi yang disarankan:
-
-* Membuat *early warning system* untuk mendeteksi seller berisiko tinggi.
-* Menyediakan dukungan khusus untuk seller yang mengalami tren negatif dalam performa.
-* Memberi insentif atau program retensi untuk seller yang mendekati ambang churn.
-* Memberikan edukasi dan pelatihan untuk meningkatkan kualitas layanan seller.
-
----
-
-## **9. Struktur Repository**
-
-Struktur umum repositori:
+Repositori memiliki struktur berikut:
 
 ```
 .
-├── README.md
-├── Finpro_5_0.ipynb
-├── data/
-│   ├── raw/
-│   └── processed/
-└── models/
+├── SQL Queries/
+│   └── (kumpulan query SQL untuk ekstraksi & transformasi data)
+│
+├── README.md                 → Dokumentasi proyek (file ini)
+├── Seller_Churn_Analisis.ipynb   → Notebook utama yang dijalankan
+│                                   berisi EDA, preprocessing, modeling
+│
+├── app.py                    → Aplikasi prediksi (Streamlit)
+│
+├── final_model.sav           → Model machine learning yang sudah dilatih
+│
+├── requirements.txt          → Daftar library Python yang dibutuhkan
 ```
+
+### **File utama yang dijalankan**
+
+**`Seller_Churn_Analisis.ipynb`**
+Ini adalah notebook yang berisi seluruh proses analisis, mulai dari:
+
+* Eksplorasi Data (EDA)
+* Pembersihan & Transformasi Data
+* Feature Engineering
+* Training Model
+* Evaluasi Model
+* Export model (final_model.sav)
 
 ---
 
-## **10. Cara Menjalankan Notebook**
+## **3. Cara Menjalankan Proyek**
 
-1. Pastikan Python 3.x terinstal
-2. Install library yang diperlukan:
+### **A. Menjalankan Notebook Analisis**
+
+1. Pastikan Python 3.x sudah terinstall
+2. Install semua dependensi:
 
    ```
    pip install -r requirements.txt
    ```
-3. Jalankan notebook:
+3. Jalankan Jupyter Notebook:
 
    ```
-   jupyter notebook Finpro_5_0.ipynb
+   jupyter notebook
+   ```
+4. Buka file:
+
+   ```
+   Seller_Churn_Analisis.ipynb
    ```
 
 ---
 
-## **11. Kontributor**
+### **B. Menjalankan Aplikasi Prediksi (`app.py`)**
+
+Jika app.py menggunakan Streamlit:
+
+```
+streamlit run app.py
+``` 
+
+Pastikan file `final_model.sav` berada di direktori yang sama karena file tersebut akan diload oleh aplikasi.
+
+---
+
+## **4. Gambaran Proses Analisis**
+
+Notebook analisis menyertakan langkah-langkah berikut:
+
+### **1. Exploratory Data Analysis (EDA)**
+
+* Distribusi seller aktif vs churn
+* Tren penurunan performa
+* Analisis rating, jumlah pesanan, keterlambatan pengiriman
+
+### **2. Data Cleaning & Preprocessing**
+
+* Menangani missing values
+* Encoding variabel kategorikal
+* Normalisasi / scaling data jika diperlukan
+
+### **3. Modeling**
+
+Model yang umum digunakan:
+
+* Logistic Regression
+* Random Forest
+* XGBoost
+
+Model dengan performa terbaik disimpan sebagai `final_model.sav`.
+
+### **4. Evaluasi**
+
+Menggunakan:
+
+* Precision
+* Recall
+* F1-score
+* ROC-AUC
+
+---
+
+## **5. Hasil Utama**
+
+Model mampu mengidentifikasi seller berisiko churn berdasarkan variabel seperti:
+
+* Tren penurunan order
+* Rating dan komplain
+* Keterlambatan pengiriman
+* Penurunan variasi produk
+
+Insight dan interpretasi model ditampilkan langsung di notebook.
+
+---
+
+## **6. Query SQL**
+
+Folder **`SQL Queries`** berisi query yang digunakan untuk:
+
+* Esktraksi data transaksi
+* Agregasi performa seller
+* Pembuatan dataset akhir sebelum masuk proses analisis
+
+---
+
+## **7. Kontributor**
 
 * Adinda Prilly Cindana
 * Dian Margaretha Nainggolan
-
-
